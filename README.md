@@ -19,7 +19,7 @@ Downlod this directory and place it in your PYTHONPATH.
 
 ## Using This Package
 
-A tuorial can be found in the 'notebooks' directory.  The primary class can be imported as:
+A tutorial can be found in the 'notebooks' directory.  The primary class can be imported as:
 
 ```
 from watson_distribution import DimrothWatson
