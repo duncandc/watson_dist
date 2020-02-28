@@ -22,7 +22,7 @@ Downlod this directory and place it in your PYTHONPATH.
 A tutorial can be found in the 'notebooks' directory.  The primary class can be imported as:
 
 ```
-from watson_distribution import DimrothWatson
+from watson_dist import DimrothWatson
 ```
 
 
