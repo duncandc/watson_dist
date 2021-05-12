@@ -122,13 +122,15 @@ class DimrothWatson(rv_continuous):
         edge_mask = (p >= 1.0/epsilon)
         p[edge_mask] = 0.0
 
-        # large positive k (bipolar)
+        # large negative k (bipolar)
         bipolar = (x >= (1.0 - epsilon)) | (x <= (-1.0 + epsilon))
-        p[bipolar & edge_mask & (k>1)] = 1.0/(2.0*epsilon)
+        #p[bipolar & edge_mask & (k>1)] = 1.0/(2.0*epsilon)
+        p[bipolar & edge_mask & (k < -1)] = 1.0/(2.0*epsilon)
 
-        # large negative k (girdle)
+        # large positive k (girdle)
         girdle = (x >= (0.0 - epsilon)) & (x <= (0.0 + epsilon))
-        p[girdle & edge_mask & (k <- 1)] = 1.0/(2.0*epsilon)
+        #p[girdle & edge_mask & (k <- 1)] = 1.0/(2.0*epsilon)
+        p[girdle & edge_mask & (k > 1)] = 1.0/(2.0*epsilon)
 
         return p
 
