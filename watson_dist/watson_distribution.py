@@ -118,8 +118,8 @@ class DimrothWatson(rv_continuous):
 
         # deal with the edge cases
         epsilon = np.finfo(float).eps
-        #edge_mask = (p >= 1.0/epsilon) | (p == 0.0)
-        edge_mask = (p >= 1.0/epsilon)
+        edge_mask = (p >= 1.0/epsilon) | (p == 0.0)
+        #edge_mask = (p >= 1.0/epsilon)
         p[edge_mask] = 0.0
 
         # large negative k (bipolar)
