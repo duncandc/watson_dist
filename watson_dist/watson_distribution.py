@@ -185,10 +185,10 @@ class DimrothWatson(rv_continuous):
             x = np.exp(k)
             inf_mask = np.array([False]*size)
         edge_mask = ((x == np.inf) | (x == 0.0))
-        #result[edge_mask & (k>0)] = np.random.choice([1,-1], size=np.sum(edge_mask & (k>0)))
-        #result[edge_mask & (k<0)] = 0.0
-        result[edge_mask & (k<0)] = np.random.choice([1,-1], size=np.sum(edge_mask & (k<0)))
-        result[edge_mask & (k>0)] = 0.0
+        result[edge_mask & (k>0)] = np.random.choice([1,-1], size=np.sum(edge_mask & (k>0)))
+        result[edge_mask & (k<0)] = 0.0
+        #result[edge_mask & (k<0)] = np.random.choice([1,-1], size=np.sum(edge_mask & (k<0)))
+        #result[edge_mask & (k>0)] = 0.0
 
         # apply rejection sampling technique to sample from pdf
         n_sucess = np.sum(zero_k) + np.sum(edge_mask)  # number of sucesessful draws from pdf
