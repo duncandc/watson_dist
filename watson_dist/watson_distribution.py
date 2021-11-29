@@ -117,7 +117,7 @@ class DimrothWatson(rv_continuous):
             p = np.nan_to_num(p)
 
         # deal with the edge cases
-        epsilon = 10.0*np.finfo(float).eps
+        epsilon = 1e-5
         edge_mask = (p >= 1.0/epsilon) | (p == 0.0)
         #edge_mask = (p >= 1.0/epsilon)
         p[edge_mask] = 0.0
